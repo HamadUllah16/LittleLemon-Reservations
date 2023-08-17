@@ -1,38 +1,204 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Colors */
+.primaryColor {
+  background-color: #495E57;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.primaryColor2 {
+  background-color: #F4CE14;
 }
 
-.App-link {
-  color: #61dafb;
+.secondaryColor {
+  background-color: #EE9972;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.secondaryColor2 {
+  background-color: #FBDABB;
+}
+
+.secondaryColor3 {
+  background-color: #EDEFEE;
+}
+
+.secondaryColor4 {
+  background-color: #333333;
+}
+
+.primaryText {
+  color: #495E57;
+}
+
+.primaryText2 {
+  color: #F4CE14;
+}
+
+.secondaryText {
+  color: #EE9972;
+}
+
+.secondaryText2 {
+  color: #FBDABB;
+}
+
+.secondaryText3 {
+  color: #EDEFEE;
+}
+
+.secondaryText4 {
+  color: #333333;
+}
+
+/* Text Size */
+.displayTitle {
+  font-family: "Markazi Text";
+  font-size: 58px;
+  letter-spacing: 2px;
+  line-height: 48px;
+}
+
+.subTitle {
+  font-family: "Markazi Text";
+  font-weight: regular;
+  font-size: 35px;
+  line-height: 48px;
+}
+
+.leadText {
+  font-family: "Karla";
+  font-weight: medium;
+  font-size: 18px;
+}
+
+.sectionTitle {
+  font-family: "Karla";
+  font-weight: bolder;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.sectionCategories {
+  font-family: "Karla";
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.cardTitle {
+  font-family: "Karla";
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.paragraphText {
+  font-family: "Karla";
+  font-size: 16px;
+  line-height: 20.5px;
+}
+
+.highlightText {
+  font-family: "Karla";
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+/* Nav Items */
+
+.logo {
+  min-height: 78px;
+}
+
+.nav-items {
+  text-decoration: none;
+  margin: 20px;
+  text-transform: uppercase;
+  color: black;
+}
+
+.heroSection {
+  max-height: 420px;
+}
+
+.heroSectionText {
+  max-width: 300px;
+}
+
+.mainDiv {
+  min-width: 100%;
+  min-height: 530px;
+  margin-bottom: 35px;
+}
+
+.heroImageBox {
+  max-width: 590px;
+  max-height: 480px;
+  border: none;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+  position: relative;
+  object-fit: cover;
+  top: 12%;
+}
+
+.mainButton {
+  min-width: 220px;
+  min-height: 56px;
+  border: none;
+  border-radius: 16px;
+}
+
+.specialsSection {
+  margin-top: 0px;
+}
+
+.dishCard {
+  max-width: 340px;
+  max-height: 462px;
+  border: none;
+  border-radius: 16px 16px 0px 0px;
+  margin: 20px 20px 0px 0px;
+}
+
+.dishImage {
+  border: none;
+  border-radius: 16px 16px 0px 0px;
+  width: 350px;
+  height: 220px;
+}
+
+.dishDescription {
+  height: 100px;
+  overflow: hidden;
+}
+.reviewCard{
+  border: none;
+  border-radius: 16px;
+}
+.testimonialSection{
+  height: 300px;
+}
+.aboutImage{
+  position: relative;
+  top: 100px;
+  right: -200px;
+  z-index: 1;
 }
