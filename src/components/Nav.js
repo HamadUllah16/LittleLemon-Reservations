@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from "../assets/Logo.svg"
+import Hamburger from "../assets/hamburger menu.svg"
 
 function Nav() {
   return (
