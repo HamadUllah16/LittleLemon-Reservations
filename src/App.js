@@ -1,31 +1,27 @@
 import './App.css';
 import WebFont from "webfontloader"
-import Nav from "./components/Nav"
-import Footer from "./components/Footer"
 import { useEffect } from 'react';
-import HeroSection from './components/HeroSection';
-import Specials from './components/Specials';
-import Testimonials from './components/Testimonials';
-import About from './components/About';
+import ReserveATable from './components/ReserveATable';
+import Home from './components/Home';
+import { Routes, Route } from "react-router-dom"
+
 
 
 function App() {
-useEffect(()=>{
-  WebFont.load({
-    google: {
-      families: ['Markazi Text', 'Karla']
-    }
-  })
-}, [])
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Markazi Text', 'Karla']
+      }
+    })
+  }, [])
 
   return (
     <>
-      <Nav />
-      <HeroSection />
-      <Specials />
-      <Testimonials />
-      <About />
-      <Footer />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/reserve' element={<ReserveATable />} />
+      </Routes>
     </>
   );
 }

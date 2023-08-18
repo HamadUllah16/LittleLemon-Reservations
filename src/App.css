@@ -202,3 +202,38 @@ body {
   right: -200px;
   z-index: 1;
 }
+
+.section-1{
+  height: 82vh;
+  width: 100vw;
+  background-image: url("./assets/restaurant.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.formDiv{
+  max-width: 1000px;
+  border: none;
+  border-radius: 16px;
+}
+.dropDown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: 180px;
+  height: 40px;
+  background-color: white;
+}
+.dropDown select{
+  width: 100%;
+  appearance: none;
+  height: 40px;
+  min-width: 180px;
+  padding-left: 10px;
+  border: 1px;
+
+}
+.arrowHead{
+  position: absolute;
+  right: 15px;
+}

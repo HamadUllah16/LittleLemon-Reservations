@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroImage from "../assets/restauranfood.jpg"
-import MainButton from './MainButton'
+import MainButton from './Buttons/MainButton'
 
 function HeroSection() {
   const littleLemon = {
@@ -17,7 +17,7 @@ function HeroSection() {
               <p className='displayTitle primaryText2 m-0'>{littleLemon.name}</p>
               <p className='subTitle secondaryText3 m-0'>{littleLemon.location}</p>
               <p className='paragraphText secondaryText3 heroSectionText'>{littleLemon.descrption}</p>
-              <MainButton buttonName="Reserve a table" />
+              <MainButton buttonName="Reserve a table" type={'button'} color={'primaryColor2'} textColor={'primaryText'} link={'/reserve'} />
             </section>
           </article>
           <article className='col-lg-6 col-md-12 heroImageBox'>
