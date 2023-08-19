@@ -1,7 +1,5 @@
-import React, { useState, useTransition } from 'react'
+import React, { useState } from 'react'
 import MainButton from './Buttons/MainButton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import Select from './Buttons/Select'
 import InputBtn from './Buttons/InputBtn'
 
@@ -37,7 +35,7 @@ function ReserveForm() {
                 <article>
                     <h1 className='sectionTitle secondaryText4 p-5 text-center'>Reserve a table</h1>
                 </article>
-                <article className='secondaryColor3 formDiv'>
+                <article className='secondaryColor3 rounded-3'>
                     <form className='p-5' onSubmit={submitHandler}>
                         <section className='row pb-4'>
                             <InputBtn inputName={"Full Name"} input={name} setInput={setName} type={'text'} />
@@ -71,7 +69,9 @@ function ReserveForm() {
                             </article>
                         </section>
                         <section className='row pt-5'>
-                            <MainButton buttonName={"Reserve for $10"} type={'submit'} color={'primaryColor2'} textColor={'primaryText'} />
+                            <section className='col text-center'>
+                                <MainButton buttonName={"Reserve for $10"} type={'submit'} color={'primaryColor2'} textColor={'primaryText'} link={'/payment'} />
+                            </section>
                         </section>
                     </form>
                 </article>

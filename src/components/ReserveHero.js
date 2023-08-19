@@ -1,5 +1,4 @@
 import React from 'react'
-import Restaurant from "../assets/restaurant.jpg"
 function ReserveHero() {
   return (
     <>

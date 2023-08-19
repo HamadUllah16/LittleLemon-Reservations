@@ -1,19 +1,23 @@
 import React from 'react'
+import Star from './Buttons/Icons/Star'
 
 function Testimonials() {
     const reviews = [
-        { name: "Joe", image: "", rating: "5.0", review: "Exceptional!" },
-        { name: "Joe", image: "", rating: "5.0", review: "Exceptional!" }
+        { name: "Joe", image: "https://xsgames.co/randomusers/avatar.php?g=male", rating: 5, review: "Exceptional!" },
+        { name: "Joe", image: "https://xsgames.co/randomusers/avatar.php?g=male", rating: 5, review: "Exceptional!" }
     ]
     const renderReviews = reviews.map((item) => {
         return (
             <section className='secondaryColor3 p-3 m-2 reviewCard'>
-                <h3 className='cardTitle'>Rating: {item.rating}</h3>
+                <div className='d-flex'>
+                    <h3 className='cardTitle'>Rating: {item.rating}</h3>
+                    <Star />
+                </div>
                 <article className='d-flex'>
-                    <img className='px-2' src={item.image} alt='profile' />
-                    <p className='leadText'>{item.name}</p>
+                    <img className='img-fluid profile rounded-circle' src={item.image} alt='profile' />
+                    <p className='m-2 leadText'>{item.name}</p>
                 </article>
-                <p className='paragraphText'>Feedback: {item.review}</p>
+                <p className='my-2 paragraphText'>Feedback: {item.review}</p>
             </section>
         )
     })

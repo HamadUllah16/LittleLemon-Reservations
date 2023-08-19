@@ -122,9 +122,32 @@ body {
 
 .nav-items {
   text-decoration: none;
-  margin: 20px;
   text-transform: uppercase;
   color: black;
+  width: 100%;
+}
+
+.nav-items:hover {
+  color: #EDEFEE;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navBox {
+  min-width: 70px;
+  display: flex;
+}
+
+.navBox:hover {
+  background-color: #495E57;
+  color: #EDEFEE;
+}
+
+.active {
+  background-color: #495E57;
+  color: #EDEFEE;
 }
 
 .heroSection {
@@ -165,6 +188,16 @@ body {
   border: none;
   border-radius: 16px;
 }
+.mainButton:hover{
+  background-color:#EDEFEE;
+  color: #495E57;
+}
+.mainButton:active{
+  min-width: 217px;
+  min-height: 53px;
+  margin: 1.5px;
+  transform-origin: center;
+}
 
 .specialsSection {
   margin-top: 0px;
@@ -189,33 +222,49 @@ body {
   height: 100px;
   overflow: hidden;
 }
-.reviewCard{
+
+.reviewCard {
   border: none;
   border-radius: 16px;
 }
-.testimonialSection{
+
+.testimonialSection {
   height: 300px;
 }
-.aboutImage{
+
+.profile {
+  max-width: 40px;
+  height: auto;
+
+}
+
+.star {
+  padding: 2.2px 0px 0px 3px;
+}
+
+.aboutImage {
   position: relative;
   top: 100px;
   right: -200px;
   z-index: 1;
 }
 
-.section-1{
+.section-1 {
   height: 82vh;
   width: 100vw;
   background-image: url("./assets/restaurant.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-.formDiv{
+
+
+.formDiv {
   max-width: 1000px;
   border: none;
   border-radius: 16px;
 }
-.dropDown{
+
+.dropDown {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,7 +273,8 @@ body {
   height: 40px;
   background-color: white;
 }
-.dropDown select{
+
+.dropDown select {
   width: 100%;
   appearance: none;
   height: 40px;
@@ -233,7 +283,8 @@ body {
   border: 1px;
 
 }
-.arrowHead{
+
+.arrowHead {
   position: absolute;
   right: 15px;
 }
