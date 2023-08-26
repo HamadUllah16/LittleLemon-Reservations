@@ -187,16 +187,15 @@ a {
   min-height: 56px;
   border: none;
   border-radius: 16px;
+  transition: 0.2s;
 }
 .mainButton:hover{
   background-color:#EDEFEE;
   color: #495E57;
 }
 .mainButton:active{
-  min-width: 217px;
-  min-height: 53px;
-  margin: 1.5px;
   transform-origin: center;
+  font-size: 15.5px;
 }
 
 .specialsSection {

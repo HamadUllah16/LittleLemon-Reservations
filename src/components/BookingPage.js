@@ -1,18 +1,18 @@
 import React from 'react'
 import ReserveHero from './ReserveHero'
-import ReserveForm from './ReserveForm'
+import BookingForm from './BookingForm'
 import Nav from "./Nav"
 import Footer from "./Footer"
 
-function ReserveATable() {
+function BookingPage() {
     return (
         <>
             <Nav />
             <ReserveHero />
-            <ReserveForm />
+            <BookingForm />
             <Footer />
         </>
     )
 }
 
-export default ReserveATable
+export default BookingPage

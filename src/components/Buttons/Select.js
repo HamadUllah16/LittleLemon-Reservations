@@ -5,7 +5,7 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 function Select({btnState, btnSetState, btnContext, options}) {
     const renderLists = options.map((item)=>{
         return(
-            <option className='leadText'>{item}</option>
+            <option>{item}</option>
         )
     })
     return (

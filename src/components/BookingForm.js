@@ -2,33 +2,47 @@ import React, { useState } from 'react'
 import MainButton from './Buttons/MainButton'
 import Select from './Buttons/Select'
 import InputBtn from './Buttons/InputBtn'
+import BookingSlot from './BookingSlot'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function ReserveForm() {
+function BookingForm() {
+    const occasionList = ["Normal", "Meetup", "Birthday", "Anniversary"]
+    const seatingList = ['Indoor', 'Outdoor']
+    const timeList = ['17', '18', '19', '20']
+    const [bookedSlots, setBookedSlots] = useState([])
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState(new Date())
     const [time, setTime] = useState('')
-    const [diners, setDiners] = useState('')
+    const [diners, setDiners] = useState(2)
     const [seating, setSeating] = useState('')
     const [occasion, setOccasion] = useState('')
     const [comment, setComment] = useState('')
 
-    const occasionList = ["Normal", "Meetup", "Birthday", "Anniversary"]
-    const seatingList = ['Indoor', 'Outdoor']
-    const dinersList = ['2-3', '4-5', '6-7']
-    const timeList = ['10am - 12pm', '12pm - 2pm', '4pm - 6pm', '7pm - 9pm']
-
     const submitHandler = ((e) => {
         e.preventDefault()
+        setBookedSlots([...bookedSlots, time])
         setName('')
         setPhone('')
         setDate('')
         setTime('')
-        setDiners('')
+        setDiners(2)
         setSeating('')
         setOccasion('')
         setComment('')
+        toast.success('Your table is reserved!', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     })
+    const renderSlots = timeList.map(item => bookedSlots.includes(item) ? <BookingSlot name={item} disabled={true} /> : <BookingSlot name={item} />)
     return (
         <section className='d-flex justify-content-center mb-5'>
             <section>
@@ -57,8 +71,18 @@ function ReserveForm() {
                                 <label htmlFor='date' className='leadText'>Select a date</label>
                                 <input className='form-control' type='date' id='date' value={date} onChange={e => setDate(e.target.value)} required />
                             </article>
-                            <Select btnContext={"Select a time"} btnState={time} btnSetState={setTime} options={timeList} />
-                            <Select btnContext={"Diners"} btnState={diners} btnSetState={setDiners} options={dinersList} />
+                            <article className='col'>
+                                <label className='leadText' htmlFor='bookingSlots'>Select a time</label>
+                                <section className='dropDown rounded-3'>
+                                    <select id='bookingSlots' className='border rounded-3' value={time} onChange={(e=>setTime(e.target.value))}>
+                                        {renderSlots}
+                                    </select>
+                                </section>
+                            </article>
+                            <article className='col'>
+                                <label className='leadText' htmlFor='diners'>Diners: {diners}</label>
+                                <input value={diners} onChange={(e => setDiners(e.target.value))} type="range" class="form-range" min="1" max="10" id="customRange2"></input>
+                            </article>
                         </section>
                         <section className='row pt-3'>
                             <Select btnContext={"Seating"} btnState={seating} btnSetState={setSeating} options={seatingList} />
@@ -68,15 +92,25 @@ function ReserveForm() {
                                 <textarea className='form-control' id='comment' value={comment} onChange={e => setComment(e.target.value)} />
                             </article>
                         </section>
-                        <section className='row pt-5'>
-                            <section className='col text-center'>
-                                <MainButton buttonName={"Reserve for $10"} type={'submit'} color={'primaryColor2'} textColor={'primaryText'} link={'/payment'} />
-                            </section>
-                        </section>
+                        <article className='text-end'>
+                            <button className={`mt-5 mainButton primaryColor2 highlightText primaryText shadow`} type='submit' onClick={submitHandler} >Reserve for $10</button>
+                            <ToastContainer
+                                position="bottom-right"
+                                autoClose={2000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light"
+                            />
+                        </article>
                     </form>
                 </article>
             </section>
         </section>
     )
 }
-export default ReserveForm
+export default BookingForm
