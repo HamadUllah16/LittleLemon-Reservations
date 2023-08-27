@@ -13,7 +13,7 @@ function HeroSection() {
       <section className='primaryColor'>
         <section className='row justify-content-center mx-md-5'>
           <article className='col-lg-6 col-md-12 d-flex align-items-center justify-content-center'>
-            <section>
+            <section className='mt-2'>
               <p className='displayTitle primaryText2 m-0'>{littleLemon.name}</p>
               <p className='subTitle secondaryText3 m-0'>{littleLemon.location}</p>
               <p className='paragraphText secondaryText3 heroSectionText'>{littleLemon.descrption}</p>

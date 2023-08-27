@@ -1,6 +1,6 @@
 import React from 'react'
 import GreekSalad from "../assets/greeksalad.jpg"
-import Bruchetta from "../assets/bruchetta.svg"
+import Bruchetta from "../assets/bruchetta.jpg"
 import LemonDessert from "../assets/lemon dessert.jpg"
 
 
@@ -10,9 +10,9 @@ function Specials() {
     { name: "Bruchetta", price: 5.99, descrption: "Our Bruchetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil", image: Bruchetta },
     { name: "Lemon Dessert", price: 5.00, descrption: "This comes straight from grandma's recipe book, every last ingredient has been resourced and is as authentic as can be imagined.", image: LemonDessert }
   ]
-  const renderDishes = dishCards.map((item) => {
+  const renderDishes = dishCards.map((item, index) => {
     return (
-      <article className='dishCard secondaryColor3 shadow'>
+      <article key={index} className='dishCard secondaryColor3 shadow'>
         <img className='img-fluid dishImage' src={item.image} alt='dish pic' />
         <div className='d-flex justify-content-between px-3 py-3'>
           <h3 className='cardTitle'>{item.name}</h3>

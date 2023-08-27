@@ -9,7 +9,7 @@ function Nav() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <section className="container my-4">
-          <Link to='/' element={<Home />}><a className="navbar-brand" href="#1"><img src={Logo} alt='navbar-brand Logo' className='logo' /></a></Link>
+          <Link to='/' element={<Home />}><span className="navbar-brand" href="#1"><img src={Logo} alt='navbar-brand Logo' className='logo' /></span></Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

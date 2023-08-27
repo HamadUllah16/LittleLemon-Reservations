@@ -6,9 +6,9 @@ function Testimonials() {
         { name: "Joe", image: "https://xsgames.co/randomusers/avatar.php?g=male", rating: 5, review: "Exceptional!" },
         { name: "Joe", image: "https://xsgames.co/randomusers/avatar.php?g=male", rating: 5, review: "Exceptional!" }
     ]
-    const renderReviews = reviews.map((item) => {
+    const renderReviews = reviews.map((item,index) => {
         return (
-            <section className='secondaryColor3 p-3 m-2 reviewCard'>
+            <section key={index} className='secondaryColor3 p-3 m-2 reviewCard'>
                 <div className='d-flex'>
                     <h3 className='cardTitle'>Rating: {item.rating}</h3>
                     <Star />
