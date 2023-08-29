@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import MainButton from './Buttons/MainButton'
 import Select from './Buttons/Select'
 import InputBtn from './Buttons/InputBtn'
@@ -6,19 +6,23 @@ import BookingSlot from './BookingSlot'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+function updateTimes(state,action){
+    return{availableTimes: state.availableTimes}
+}
 function BookingForm() {
     const occasionList = ["Normal", "Meetup", "Birthday", "Anniversary"]
     const seatingList = ['Indoor', 'Outdoor']
-    const timeList = ['17', '18', '19', '20']
     const [bookedSlots, setBookedSlots] = useState([])
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [date, setDate] = useState(new Date())
-    const [time, setTime] = useState('')
+    const [time, setTime] = useState('17')
     const [diners, setDiners] = useState(2)
     const [seating, setSeating] = useState('')
     const [occasion, setOccasion] = useState('')
     const [comment, setComment] = useState('')
+    const initializeTimes =  {availableTimes : ['17', '18', '19', '20']}
+    const [state, dispatch] = useReducer(updateTimes, initializeTimes)
 
     const submitHandler = ((e) => {
         e.preventDefault()
@@ -42,7 +46,7 @@ function BookingForm() {
             theme: "light",
         });
     })
-    const renderSlots = timeList.map(item => bookedSlots.includes(item) ? <BookingSlot name={item} disabled={true} /> : <BookingSlot name={item} />)
+    const renderSlots = state.availableTimes.map((item,index) => bookedSlots.includes(item) ? <BookingSlot key={index} name={item} disabled={true} /> : <BookingSlot key={index} name={item} />)
     return (
         <section className='d-flex justify-content-center mb-5'>
             <section>
@@ -69,7 +73,7 @@ function BookingForm() {
                         <section className='row pt-3'>
                             <article className='col'>
                                 <label htmlFor='date' className='leadText'>Select a date</label>
-                                <input className='form-control' type='date' id='date' value={date} onChange={e => setDate(e.target.value)} required />
+                                <input className='form-control' type='date' id='date' value={date} onChange={() => dispatch()} required />
                             </article>
                             <article className='col'>
                                 <label className='leadText' htmlFor='bookingSlots'>Select a time</label>
@@ -81,7 +85,7 @@ function BookingForm() {
                             </article>
                             <article className='col'>
                                 <label className='leadText' htmlFor='diners'>Diners: {diners}</label>
-                                <input value={diners} onChange={(e => setDiners(e.target.value))} type="range" class="form-range" min="1" max="10" id="customRange2"></input>
+                                <input value={diners} onChange={(e => setDiners(e.target.value))} type="range" className="form-range" min="1" max="10" id="customRange2"></input>
                             </article>
                         </section>
                         <section className='row pt-3'>

@@ -138,6 +138,7 @@ a {
 .navBox {
   min-width: 70px;
   display: flex;
+  transition: 0.2s;
 }
 
 .navBox:hover {

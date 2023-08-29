@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 function Select({btnState, btnSetState, btnContext, options}) {
-    const renderLists = options.map((item)=>{
+    const renderLists = options.map((item, index)=>{
         return(
-            <option>{item}</option>
+            <option key={index}>{item}</option>
         )
     })
     return (

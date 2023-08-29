@@ -1,9 +1,9 @@
 import React from 'react'
 
-function BookingSlot({name, disabled}) {
+function BookingSlot({name, index, disabled}) {
   return (
     <>
-      <option disabled={disabled} className={`${disabled ? "text-danger" : ''}`} >{name}</option>
+      <option key={index} disabled={disabled} className={`${disabled ? "text-danger" : ''}`} >{name}:00</option>
     </>
   )
 }
