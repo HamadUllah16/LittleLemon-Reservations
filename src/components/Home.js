@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from './Nav'
 import HeroSection from "./HeroSection"
-import Specials from "./Specials"
+import Dishes from "./Dishes"
 import Testimonials from "./Testimonials"
 import About from "./About"
 import Footer from "./Footer"
@@ -11,7 +11,7 @@ function Home() {
         <>
             <Nav />
             <HeroSection />
-            <Specials />
+            <Dishes />
             <Testimonials />
             <About />
             <Footer />

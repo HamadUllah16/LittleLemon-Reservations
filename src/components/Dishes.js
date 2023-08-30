@@ -2,9 +2,10 @@ import React from 'react'
 import GreekSalad from "../assets/greeksalad.jpg"
 import Bruchetta from "../assets/bruchetta.jpg"
 import LemonDessert from "../assets/lemon dessert.jpg"
+import Delivery from "../assets/delivery-removebg-preview.png"
 
 
-function Specials() {
+function Dishes() {
   const dishCards = [
     { name: "Greek Salad", price: 12.99, descrption: "The famous greek salad of crispy lettuce, peppers, olives, and our Chicago style feta cheese, garnished with crunchy garllic and rosemary croutons.", image: GreekSalad },
     { name: "Bruchetta", price: 5.99, descrption: "Our Bruchetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil", image: Bruchetta },
@@ -19,7 +20,7 @@ function Specials() {
           <h3 className='highlightText'>${item.price}</h3>
         </div>
         <p className='px-3 paragraphText dishDescription'>{item.descrption}</p>
-        <h3 className='px-3 pb-3 cardTitle'>Order for delivery</h3>
+        <h3 className='px-3 pb-3 cardTitle'>Order for delivery<img className='deliveryIcon' src={Delivery} alt='delivery' /></h3>
       </article>)
   })
 
@@ -37,4 +38,4 @@ function Specials() {
   )
 }
 
-export default Specials
+export default Dishes

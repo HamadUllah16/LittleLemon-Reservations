@@ -25,7 +25,7 @@ function BookingPage() {
         return slots;
     }
 
-    const initializeTimes = { availableTimes: fetchAPI(new Date()) }
+    const initializeTimes =  { availableTimes: fetchAPI(new Date()) }
     const [state, dispatch] = useReducer(updateTimes, initializeTimes)
 
     function submitAPI(formData){

@@ -12,8 +12,8 @@ function Select({btnState, btnSetState, btnContext, options}) {
         <>
             <article className='col'>
                 <label className='leadText'>{btnContext}</label>
-                <section htmlFor={`${btnContext}`} className='dropDown rounded-3'>
-                    <select className='border rounded-3' value={btnState} onChange={e => btnSetState(e.target.value)} id={`${btnContext}`} >
+                <section htmlFor={`${btnContext}`} className=' dropDown rounded-3'>
+                    <select className='border rounded-3 form-control' value={btnState} onChange={e => btnSetState(e.target.value)} id={`${btnContext}`} >
                         {renderLists}
                     </select>
                     <article className='arrowHead'>

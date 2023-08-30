@@ -191,6 +191,14 @@ a {
   border-radius: 16px;
   transition: 0.2s;
 }
+.mainButtonDisabled {
+  min-width: 220px;
+  min-height: 56px;
+  border: none;
+  border-radius: 16px;
+  background-color:#EDEFEE;
+  color:#8a8b8a;
+}
 .mainButton:hover{
   background-color:#EDEFEE;
   color: #495E57;
@@ -222,6 +230,9 @@ a {
 .dishDescription {
   height: 100px;
   overflow: hidden;
+}
+.deliveryIcon{
+  max-width: 50px;
 }
 
 .reviewCard {
