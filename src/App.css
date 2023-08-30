@@ -209,7 +209,7 @@ a {
   max-height: 462px;
   border: none;
   border-radius: 16px 16px 0px 0px;
-  margin: 20px 20px 0px 0px;
+  margin: 20px 0px 0px 0px;
 }
 
 .dishImage {
@@ -227,6 +227,10 @@ a {
 .reviewCard {
   border: none;
   border-radius: 16px;
+  height: 170px;
+}
+.reviewBox{
+  width: 180px;
 }
 
 .testimonialSection {
@@ -294,4 +298,9 @@ a {
 }
 .footerImage{
   max-height: 200px;
+}
+.confirmation{
+  display: flex;
+  align-items: center;
+  height: 41.7vh;
 }

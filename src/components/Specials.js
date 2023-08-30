@@ -12,7 +12,7 @@ function Specials() {
   ]
   const renderDishes = dishCards.map((item, index) => {
     return (
-      <article key={index} className='dishCard secondaryColor3 shadow'>
+      <article key={index} className='dishCard mx-4 secondaryColor3 shadow'>
         <img className='img-fluid dishImage' src={item.image} alt='dish pic' />
         <div className='d-flex justify-content-between px-3 py-3'>
           <h3 className='cardTitle'>{item.name}</h3>
@@ -24,12 +24,12 @@ function Specials() {
   })
 
   return (
-    <section className='specialsSection secondaryColor3 p-5'>
+    <section className='specialsSection secondaryColor3 p-sm-5 py-4'>
       <section className='container-md'>
         <article>
           <h1 className='sectionTitle'>Specials</h1>
         </article>
-        <article className='d-flex justify-content-between flex-wrap'>
+        <article className='d-flex flex-wrap'>
           {renderDishes}
         </article>
       </section>

@@ -1,52 +1,40 @@
-import React, { useReducer, useState } from 'react'
+import React, { useState } from 'react'
 import MainButton from './Buttons/MainButton'
 import Select from './Buttons/Select'
 import InputBtn from './Buttons/InputBtn'
-import BookingSlot from './BookingSlot'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
+import ConfirmedBooking from './ConfirmedBooking';
 
-function updateTimes(state,action){
-    return{availableTimes: state.availableTimes}
-}
-function BookingForm() {
+function BookingForm({ state, dispatch, submitForm }) {
+    const handleDate = (e) => {
+        setDate(e.target.value)
+        dispatch(e.target.value)
+    }
+
+    const renderSlots = state.availableTimes.map(item => {
+        return (
+            <option>{item}</option>
+        )
+    })
+
+
     const occasionList = ["Normal", "Meetup", "Birthday", "Anniversary"]
     const seatingList = ['Indoor', 'Outdoor']
-    const [bookedSlots, setBookedSlots] = useState([])
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
-    const [date, setDate] = useState(new Date())
-    const [time, setTime] = useState('17')
+    const [date, setDate] = useState('')
+    const [time, setTime] = useState('')
     const [diners, setDiners] = useState(2)
     const [seating, setSeating] = useState('')
     const [occasion, setOccasion] = useState('')
     const [comment, setComment] = useState('')
-    const initializeTimes =  {availableTimes : ['17', '18', '19', '20']}
-    const [state, dispatch] = useReducer(updateTimes, initializeTimes)
 
     const submitHandler = ((e) => {
         e.preventDefault()
-        setBookedSlots([...bookedSlots, time])
-        setName('')
-        setPhone('')
-        setDate('')
-        setTime('')
-        setDiners(2)
-        setSeating('')
-        setOccasion('')
-        setComment('')
-        toast.success('Your table is reserved!', {
-            position: "bottom-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+        submitForm(e)
     })
-    const renderSlots = state.availableTimes.map((item,index) => bookedSlots.includes(item) ? <BookingSlot key={index} name={item} disabled={true} /> : <BookingSlot key={index} name={item} />)
+
+
     return (
         <section className='d-flex justify-content-center mb-5'>
             <section>
@@ -73,12 +61,12 @@ function BookingForm() {
                         <section className='row pt-3'>
                             <article className='col'>
                                 <label htmlFor='date' className='leadText'>Select a date</label>
-                                <input className='form-control' type='date' id='date' value={date} onChange={() => dispatch()} required />
+                                <input className='form-control' type='date' id='date' value={date} onChange={handleDate} required />
                             </article>
                             <article className='col'>
                                 <label className='leadText' htmlFor='bookingSlots'>Select a time</label>
                                 <section className='dropDown rounded-3'>
-                                    <select id='bookingSlots' className='border rounded-3' value={time} onChange={(e=>setTime(e.target.value))}>
+                                    <select id='bookingSlots' className='border rounded-3' value={time} onChange={(e => setTime(e.target.value))}>
                                         {renderSlots}
                                     </select>
                                 </section>
@@ -97,19 +85,9 @@ function BookingForm() {
                             </article>
                         </section>
                         <article className='text-end'>
-                            <button className={`mt-5 mainButton primaryColor2 highlightText primaryText shadow`} type='submit' onClick={submitHandler} >Reserve for $10</button>
-                            <ToastContainer
-                                position="bottom-right"
-                                autoClose={2000}
-                                hideProgressBar={false}
-                                newestOnTop={false}
-                                closeOnClick
-                                rtl={false}
-                                pauseOnFocusLoss
-                                draggable
-                                pauseOnHover
-                                theme="light"
-                            />
+                            <Link to='/confirmation' element={<ConfirmedBooking />} >
+                                <button className={`mt-5 mainButton primaryColor2 highlightText primaryText shadow`} type='submit' onClick={submitHandler} >Reserve</button>
+                            </Link>
                         </article>
                     </form>
                 </article>

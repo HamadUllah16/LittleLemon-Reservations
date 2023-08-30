@@ -1,23 +1,24 @@
 import React from 'react'
-import Star from './Buttons/Icons/Star'
+import blankPfp from '../assets/blank-profile-picture-973460_1280.png'
 
 function Testimonials() {
+
+
     const reviews = [
-        { name: "Joe", image: "https://xsgames.co/randomusers/avatar.php?g=male", rating: 5, review: "Exceptional!" },
-        { name: "Joe", image: "https://xsgames.co/randomusers/avatar.php?g=male", rating: 5, review: "Exceptional!" }
+        { name: 'User 1', image: blankPfp, rating: 5, review: "Best bruchetta in the town!" },
+        { name: 'User 2', image: blankPfp, rating: 5, review: "Exceptional!" }
     ]
-    const renderReviews = reviews.map((item,index) => {
+    const renderReviews = reviews.map((item, index) => {
         return (
             <section key={index} className='secondaryColor3 p-3 m-2 reviewCard'>
                 <div className='d-flex'>
                     <h3 className='cardTitle'>Rating: {item.rating}</h3>
-                    <Star />
                 </div>
                 <article className='d-flex'>
                     <img className='img-fluid profile rounded-circle' src={item.image} alt='profile' />
                     <p className='m-2 leadText'>{item.name}</p>
                 </article>
-                <p className='my-2 paragraphText'>Feedback: {item.review}</p>
+                <p className='reviewBox my-2 paragraphText'>{item.review}</p>
             </section>
         )
     })
