@@ -10,7 +10,7 @@ function Testimonials() {
     ]
     const renderReviews = reviews.map((item, index) => {
         return (
-            <section key={index} className='secondaryColor3 p-3 m-2 reviewCard'>
+            <section key={index} className='col-lg-2 col-md-2 col-sm-4 col-6 secondaryColor3 p-3 m-2 reviewCard'>
                 <div className='d-flex'>
                     <h3 className='cardTitle'>Rating: {item.rating}</h3>
                 </div>
@@ -26,7 +26,7 @@ function Testimonials() {
         <section className='primaryColor2'>
             <section className='container testimonialSection p-3'>
                 <h3 className='text-center sectionTitle p-3'>Testimonials</h3>
-                <section className='d-flex align-items-center justify-content-center'>
+                <section className='row align-items-center justify-content-center'>
                     {renderReviews}
                 </section>
             </section>

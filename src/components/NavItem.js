@@ -6,7 +6,7 @@ function NavItem({name, address}) {
         <>
             <li className="nav-item">
                 <article className='navBox text-center'>
-                    <NavLink to={`${address}`} className='p-2 nav-items leadText'>{name}</NavLink>
+                    <NavLink to={`${address}`} className='p-2 nav-items primaryText leadText'>{name}</NavLink>
                 </article>
             </li>
         </>

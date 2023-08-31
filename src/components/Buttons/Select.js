@@ -10,7 +10,7 @@ function Select({btnState, btnSetState, btnContext, options}) {
     })
     return (
         <>
-            <article className='col'>
+            <article className='col-lg-4 col-sm-6'>
                 <label className='leadText'>{btnContext}</label>
                 <section htmlFor={`${btnContext}`} className=' dropDown rounded-3'>
                     <select className='border rounded-3 form-control' value={btnState} onChange={e => btnSetState(e.target.value)} id={`${btnContext}`} >

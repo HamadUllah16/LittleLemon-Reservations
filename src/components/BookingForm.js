@@ -1,26 +1,23 @@
 import React, { useState } from 'react'
 import MainButton from './Buttons/MainButton'
 import Select from './Buttons/Select'
-import { Link } from 'react-router-dom';
-import ConfirmedBooking from './ConfirmedBooking';
+import { useNavigate } from 'react-router-dom';
 
 function BookingForm({ state, dispatch, submitForm }) {
     const handleDate = (e) => {
         if (e.target.value.length) {
             setDate(e.target.value)
-            setDateValidation(true)
             dispatch(e.target.value)
         }
         else {
             setDate(e.target.value)
-            setDateValidation(false)
             dispatch(e.target.value)
         }
     }
 
     const renderSlots = state.availableTimes.map(item => {
         return (
-            <option>{item}</option>
+            <option key={item}>{item}</option>
         )
     })
 
@@ -31,14 +28,13 @@ function BookingForm({ state, dispatch, submitForm }) {
     const [nameValidation, setNameValidation] = useState(false)
     const [phone, setPhone] = useState('')
     const [phoneValidation, setPhoneValidation] = useState(false)
-    const [date, setDate] = useState('')
-    const [dateValidation, setDateValidation] = useState(false)
+    const [date, setDate] = useState()
     const [time, setTime] = useState('')
     const [diners, setDiners] = useState(2)
     const [seating, setSeating] = useState('')
     const [occasion, setOccasion] = useState('')
     const [comment, setComment] = useState('')
-    const disable = nameValidation && phoneValidation && dateValidation
+    const disable = nameValidation && phoneValidation
 
     const nameHandler = ((e) => {
         if (e.target.value.length < 4) {
@@ -51,7 +47,7 @@ function BookingForm({ state, dispatch, submitForm }) {
         }
     })
     const phoneHandler = ((e) => {
-        if (e.target.value.length < 11) {
+        if (e.target.value.length < 10) {
             setPhone(e.target.value)
             setPhoneValidation(false)
         }
@@ -60,9 +56,11 @@ function BookingForm({ state, dispatch, submitForm }) {
             setPhoneValidation(true)
         }
     })
+    const navigate = useNavigate()
     const submitHandler = ((e) => {
         e.preventDefault()
         submitForm(e)
+        navigate('/confirmation')
     })
 
 
@@ -75,32 +73,32 @@ function BookingForm({ state, dispatch, submitForm }) {
                 <article className='secondaryColor3 rounded-3'>
                     <form className='p-5' onSubmit={submitHandler}>
                         <section className='row pb-4'>
-                            <article className='col'>
-                                <label htmlFor={`name`} className={nameValidation ? 'leadText' : 'text-danger leadText'} >Full Name*</label>
+                            <article className='col-sm-6'>
+                                <label htmlFor={`name`} className={'leadText'} >Full Name*</label>
                                 <input className='form-control' type='text' id='name' value={name} onChange={nameHandler} aria-label="On Click" required />
                             </article>
-                            <article className='col'>
-                                <label htmlFor='phone' className={phoneValidation ? 'leadText' : 'text-danger leadText'} >Phone*</label>
+                            <article className='col-sm-6'>
+                                <label htmlFor='phone' className={'leadText'} >Phone*</label>
                                 <input className='form-control' type='tel' id='phone' value={phone} onChange={phoneHandler} aria-label="On Click" required />
                             </article>
                         </section>
-                        <section className='row pb-4 border-bottom'>
-                            <p className='leadText'>Login instead?</p>
-                            <section className='d-flex justify-content-center '>
-                                <article className='p-2'>
+                        <p className='leadText'>Login instead?</p>
+                        <section className='d-flex justify-content-center pb-4 border-bottom'>
+                            <article className='row'>
+                                <article className='col-lg-6 col-md-6 col-sm-12 p-2 text-center'>
                                     <MainButton buttonName={'Login'} type={'button'} />
                                 </article>
-                                <article className='p-2'>
+                                <article className='col-lg-6 col-md-6 col-sm-12 p-2 text-center'>
                                     <MainButton buttonName={'Register'} type={'button'} color={'primaryColor'} textColor={'secondaryText3'} />
                                 </article>
-                            </section>
+                            </article>
                         </section>
                         <section className='row pt-3'>
-                            <article className='col'>
-                                <label htmlFor='date' className={dateValidation ? "leadText" : 'text-danger leadText'}>Select a date*</label>
-                                <input className='form-control' type='date' id='date' value={date} onChange={handleDate} aria-label="On Click" required />
+                            <article className='col-lg-4 col-sm-6'>
+                                <label htmlFor='date' className={"leadText"}>Select a date*</label>
+                                <input className='form-control' type='date' id='date' value={date} required onChange={handleDate} aria-label="On Click" />
                             </article>
-                            <article className='col'>
+                            <article className='col-lg-4 col-sm-6'>
                                 <label className='leadText' htmlFor='bookingSlots' >Select a time</label>
                                 <section className='dropDown rounded-3'>
                                     <select id='bookingSlots' className='form-control border rounded-3' value={time} aria-label="On Click" onChange={(e => setTime(e.target.value))}>
@@ -108,23 +106,21 @@ function BookingForm({ state, dispatch, submitForm }) {
                                     </select>
                                 </section>
                             </article>
-                            <article className='col'>
-                                <label className='leadText' htmlFor='diners'>Diners: {diners}</label>
-                                <input value={diners} onChange={(e => setDiners(e.target.value))} aria-label="On Click" type="range" className="form-range" min="1" max="10" id="customRange2"></input>
+                            <article className='col-lg-4 col-sm-12'>
+                                <label className='leadText' htmlFor='diners'>Diners</label>
+                                <input value={diners} onChange={(e => setDiners(e.target.value))}  id='diners' aria-label="On Click" type="number" className="form-control" min="1" max="10"></input>
                             </article>
                         </section>
                         <section className='row pt-3'>
                             <Select btnContext={"Seating"} btnState={seating} btnSetState={setSeating} options={seatingList} />
                             <Select btnContext={"Occasion"} btnState={occasion} btnSetState={setOccasion} options={occasionList} />
-                            <article className='col'>
+                            <article className='col-lg-4 col-sm-6'>
                                 <label htmlFor='comment' className='leadText'>Comment</label>
                                 <textarea className='form-control' id='comment' value={comment} aria-label="On Click" onChange={e => setComment(e.target.value)} />
                             </article>
                         </section>
                         <article className='text-end'>
-                            <Link to='/confirmation' element={<ConfirmedBooking />} >
-                                <button disabled={!disable} aria-label="On Click" className={disable ? `mt-5 mainButton primaryColor2 highlightText primaryText shadow` : 'mt-5 mainButtonDisabled shadow highlightText'} type='submit' onClick={submitHandler} >Reserve</button>
-                            </Link>
+                            <button disabled={!disable} aria-label="On Click" className={disable ? `mt-5 mainButton primaryColor2 highlightText primaryText shadow` : 'mt-5 mainButtonDisabled shadow highlightText'} type='submit' >Reserve</button>
                         </article>
                     </form>
                 </article>
