@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from "../assets/Logo.svg"
 import { Link } from "react-router-dom"
-import Home from './Home'
+import Home from './Pages/Home'
 import NavItem from './NavItem'
 
 function Nav() {

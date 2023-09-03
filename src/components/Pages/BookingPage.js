@@ -1,8 +1,8 @@
 import React, {useReducer} from 'react'
-import ReserveHero from './ReserveHero'
-import BookingForm from './BookingForm'
-import Nav from "./Nav"
-import Footer from "./Footer"
+import ReserveHero from '../ReserveHero'
+import BookingForm from '../BookingForm'
+import Nav from "../Nav"
+import Footer from "../Footer"
 import { useNavigate } from 'react-router-dom'
 
 function BookingPage() {
