@@ -43,7 +43,7 @@ function Footer() {
                 </section>
                 <section className='pt-3'>
                     <p className='text-center leadText m-0 secondaryText3 text-end'>
-                        Copyright - Little Lemon {copyYear}
+                    Meta Front-End Capstone Project - Hamad {copyYear}
                     </p>
                 </section>
             </section>
