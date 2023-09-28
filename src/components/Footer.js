@@ -26,7 +26,7 @@ function Footer() {
                     </section>
                     <section className='col-lg-3 col-md-3 col-sm-6 col-6 pt-2'>
                         <h3 className='m-0 sectionTitle secondaryText2 pb-2'>Help & Support</h3>
-                        <ul className='navbar-nav'>
+                        <ul className='navbar-nav overflow-hidden'>
                             <li className='nav-item'><a className='leadText text-light' href='mailto: littlelemon@meta.com'>LittleLemon@meta.com</a></li>
                             <li className='nav-item'><a className='leadText text-light' href='tel:12345678'>12345678</a></li>
                             <li className='nav-item'><a className='leadText text-light' href='https://maps.google.com/?q=littlelemonrestaurant'>Little Lemon Chicago</a></li>
