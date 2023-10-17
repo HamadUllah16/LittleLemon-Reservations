@@ -13,7 +13,7 @@ function Dishes() {
   ]
   const renderDishes = dishCards.map((item, index) => {
     return (
-      <article key={index} className='dishCard col-4 col-lg-4 col-md-4 p-0 col-sm-6 mx-2 secondaryColor3 border shadow'>
+      <article key={index} className='dishCard col-lg-4 col-md-4 p-0 col-sm-4 mx-2 secondaryColor3 border shadow'>
         <img className='dishImage' src={item.image} alt='dish pic' />
         <div className='d-flex justify-content-between px-3 py-3'>
           <h3 className='cardTitle'>{item.name}</h3>
@@ -30,7 +30,7 @@ function Dishes() {
         <article>
           <h1 className='sectionTitle'>Specials</h1>
         </article>
-        <article className='row'>
+        <article className='row justify-content-center'>
           {renderDishes}
         </article>
       </section>

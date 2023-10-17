@@ -1,12 +1,11 @@
-import React from 'react'
 import blankPfp from '../assets/blank-profile-picture-973460_1280.png'
+
 
 function Testimonials() {
 
-
     const reviews = [
-        { name: 'User 1', image: blankPfp, rating: 5, review: "Best bruchetta in the town!" },
-        { name: 'User 2', image: blankPfp, rating: 5, review: "Exceptional!" }
+        { name: 'Dan', image: blankPfp, rating: 5, review: "Best bruchetta in the town!" },
+        { name: 'Christelle', image: blankPfp, rating: 5, review: "Exceptional!" }
     ]
     const renderReviews = reviews.map((item, index) => {
         return (
