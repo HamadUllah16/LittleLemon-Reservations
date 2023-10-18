@@ -27,9 +27,10 @@ function Footer() {
                     <section className='col-lg-3 col-md-3 col-sm-6 col-6 pt-2'>
                         <h3 className='m-0 sectionTitle secondaryText2 pb-2'>Help & Support</h3>
                         <ul className='navbar-nav overflow-hidden'>
-                            <li className='nav-item'><a className='leadText text-light' href='mailto: littlelemon@meta.com'>LittleLemon@meta.com</a></li>
-                            <li className='nav-item'><a className='leadText text-light' href='tel:12345678'>12345678</a></li>
+                            <li className='nav-item'><a className='leadText text-light' href='mailto: hamadullah16@gmail.com'>hamadullah16@gmail.com</a></li>
                             <li className='nav-item'><a className='leadText text-light' href='https://maps.google.com/?q=littlelemonrestaurant'>Little Lemon Chicago</a></li>
+                            <li className='nav-item'><a className='leadText text-light' href='https://github.com/HamadUllah16/LittleLemon-Reservations'>GitHub</a></li>
+                            <li className='nav-item'><a className='leadText text-light' href='https://www.linkedin.com/in/hamadullah16/'>LinkedIn</a></li>
                         </ul>
                     </section>
                     <section className='col-lg-3 col-md-3 col-sm-6 col-6 pt-2'>
@@ -41,8 +42,9 @@ function Footer() {
                         </ul>
                     </section>
                 </section>
-                <section className='pt-3'>
-                    <p className='text-center leadText m-0 secondaryText3 text-end'>
+                <hr className='mt-4 text-light'></hr>
+                <section className='pb-2'>
+                    <p className='text-center leadText m-0 secondaryText3'>
                     Meta Front-End Capstone Project - Hamad {copyYear}
                     </p>
                 </section>

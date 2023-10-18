@@ -163,6 +163,10 @@ a {
   min-height: 530px;
   margin-bottom: 35px;
 }
+.rowContainer{
+  max-width: 2000px;
+
+}
 
 .heroImageBox {
   max-width: 590px;
