@@ -1,5 +1,14 @@
-# Little Lemon Restaurant - META's Frontend Capstone Project built in React
-Live: https://littlelemonchicago.vercel.app
+# Little Lemon Restaurant
+META Frontend Capstone Project.
+Technologies used:
+<ul>
+  <li>React</li>
+  <li>Bootstrap5</li>
+  <li>HTML5</li>
+  <li>CSS3</li>
+</ul>
+
+Live Vercel: https://littlelemonchicago.vercel.app
 
 # Dependencies:
 
